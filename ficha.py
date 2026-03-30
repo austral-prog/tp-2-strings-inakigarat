@@ -24,4 +24,55 @@ def ficha():
     #   - Código secreto: nombre invertido en mayúsculas
     #   - Las 3 notas, su suma, promedio y promedio entero
     #   - Cierre decorativo usando repetición de string ("=" * 24)
+
+    nombre = input("Ingrese su nombre:")
+    email = input("Ingrese su email:")
+    n1 = input("Ingrese nota:")
+    n2 = input("Ingrese nota:")
+    n3 = input("Ingrese nota:")
+
+
+    nota1 = int(n1)
+    nota2 = int(n2)
+    nota3 = int(n3)
+
+    nombre_limpio = nombre.strip().title()
+    nombre_minusculas = nombre_limpio.lower()
+    email_minusculas = email.lower()
+    cantidad_caracteres = len(nombre_limpio)
+    espacio = nombre_limpio.find(" ")
+    iniciales = nombre_limpio[0] + nombre_limpio[espacio + 1]
+    usuario = nombre_minusculas[espacio +1:] + "." + nombre_minusculas[:espacio]
+    tiene_arroba = "@" in email_minusculas
+    dominio_post_arroba = email_minusculas.find("@")
+    dominio = email_minusculas[dominio_post_arroba + 1:]
+    nombre_con_guion_bajo = nombre.strip().title().replace(" ", "_")
+    cantidad_de_a = nombre.lower().count("a")
+    nombre_invertido = nombre.strip().upper()[::-1]
+    suma = nota1 + nota2 + nota3
+    promedio = suma / 3
+    promedio_entero= int(promedio)
+
+    print("=" * 24)
+    print("    FICHA DEL ALUMNO")
+    print("=" * 24)
+    print("Nombre:", nombre_limpio)
+    print("Email:", email_minusculas)
+    print("Caracteres en nombre:", cantidad_caracteres)
+    print("Iniciales:", iniciales)
+    print("Usuario:", usuario)
+    print("Email valido:", tiene_arroba)
+    print("Dominio:", dominio)
+    print("Nombre para archivo:", nombre_con_guion_bajo)
+    print("Cantidad de a:", cantidad_de_a)
+    print("Codigo secreto:", nombre_invertido)
+    print("Nota 1:", n1)
+    print("Nota 2:", n2)
+    print("Nota 3:", n3)
+    print("Suma:", suma)
+    print("Promedio:", promedio)
+    print("Promedio entero:", promedio_entero)
+    print("=" * 24)
+
     pass
+ficha()
